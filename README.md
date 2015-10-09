@@ -6,13 +6,17 @@ Environment variables to pass to the container for WAL-E, all of these must be p
 
 Create an IAM user in a group with GetObject, ListBucket and PutObject on the bucket you want to use (and that it's not public).
 
-Use the to set the ENV variables
-
 | ENV | Default | Description |
 |------------- | -------------|------------- |
-| AWS_SECRET_KEY | None | from IAM user's credentials, used to authenticate with S3 |
-| AWS_ACCESS_KEY` | None | from IAM user's credentials, used to authenticate with S3 |
-| WALE_S3_PREFIX="s3://{bucketname}/{path}" | s3://postgres-backups/ | from S3 bucket, used as the destination for database backups |
 | RETAIN_BACKUP_COUNT | 7 | Total number of backups to keep in S3 |
 | BACKUP_CLEANUP_CRON | 0 4 * * * | Perform backup cleanup everyday at 4 am. |
 | BACKUP_CRON | 0 3 * * * | Perform database backups everyday at 3 am. |
+
+This image has a Volume at /etc/wal-e/env
+
+Add a volume container with the data files as follows
+
+| File | Description |
+| AWS_SECRET_KEY | from IAM user's credentials, used to authenticate with S3 |
+| AWS_ACCESS_KEY | from IAM user's credentials, used to authenticate with S3 |
+| WALE_S3_PREFIX | from S3 bucket, used as the destination for database backups |
