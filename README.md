@@ -6,11 +6,8 @@ Environment variables to pass to the container for WAL-E, all of these must be p
 
 Create an IAM user in a group with GetObject, ListBucket and PutObject on the bucket you want to use (and that it's not public).
 
-| ENV | Default | Description |
-|------------- | -------------|------------- |
-| RETAIN_BACKUP_COUNT | 7 | Total number of backups to keep in S3 |
-| BACKUP_CLEANUP_CRON | 0 4 * * * | Perform backup cleanup everyday at 4 am. |
-| BACKUP_CRON | 0 3 * * * | Perform database backups everyday at 3 am. |
+This image backups at 3 am and cleanups backups at 4 am.
+This image retains up to 7 backups.
 
 This image has a Volume at /etc/wal-e/env
 
