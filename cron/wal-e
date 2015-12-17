@@ -1,3 +1,3 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-* 3 * * * postgres envdir /etc/wal-e.d/env wal-e backup-push /var/lib/postgresql/data
-* 4 * * * postgres envdir /etc/wal-e.d/env wal-e delete --confirm retain 7
+0 3 * * * postgres envdir /etc/wal-e.d/env wal-e backup-push /var/lib/postgresql/data
+0 4 * * * * postgres envdir /etc/wal-e.d/env wal-e delete --confirm retain 7
