@@ -1,4 +1,4 @@
-# Postgres docker container with wale
+# Postgres docker container with wale for backup
 
 Based on https://github.com/docker-library/postgres with [WAL-E](https://github.com/wal-e/wal-e) installed.
 
