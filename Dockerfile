@@ -1,5 +1,4 @@
 FROM postgres:9.4.5
-
 MAINTAINER Manuel Familia
 
 RUN apt-get update && apt-get install -y python-pip python-dev lzop pv daemontools
@@ -10,9 +9,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 VOLUME "/etc/wal-e/env"
 
 COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
-
-ADD cron/wal-e /etc/cron.d/wal-e
-RUN chmod 755 /etc/cron.d/wal-e
 
 COPY scripts/start-cron.sh /etc/service/cron/run
 RUN chmod 755 /etc/service/cron/run
