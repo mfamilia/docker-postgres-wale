@@ -10,8 +10,5 @@ VOLUME "/etc/wal-e/env"
 
 COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 
-COPY scripts/start-cron.sh /etc/service/cron/run
-RUN chmod 755 /etc/service/cron/run
-
 ADD scripts/fix-acl.sh /docker-entrypoint-initdb.d/
 ADD scripts/setup-wale.sh /docker-entrypoint-initdb.d/
